@@ -17,6 +17,8 @@ public class loginAdmin {
             System.out.println("Login Successful");
         } else{
             System.out.println("Login unsuccessfull. Try again!");
+            Main display = new Main();
+            display.tampilan();
         }
     }
 }

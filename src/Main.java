@@ -2,10 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner person = new Scanner(System.in);
-        loginAdmin admin = new loginAdmin();
-        int login;
-
 
         System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
         System.out.println("\t\t\t\t\t====          Hello Deliguys!        ====\t\t\t\t\t");
@@ -14,7 +10,14 @@ public class Main {
         System.out.println("\t\t\t\t\t====                                 ====\t\t\t\t\t");
         System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
 
-        do {
+        tampilan();
+    }
+
+    public static void tampilan() {
+        Scanner person = new Scanner(System.in);
+        loginAdmin admin = new loginAdmin();
+        int login;
+
             System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
             System.out.println("\t\t\t\t\t====            Who are you?         ====\t\t\t\t\t");
             System.out.println("\t\t\t\t\t====              1. Admin           ====\t\t\t\t\t");
@@ -35,8 +38,8 @@ public class Main {
                     System.out.println("Your input is wrong! Please try again (Number 1/2)");
 
             }
-        } while (login < 1 || login > 2);
     }
 }
+
 
 
