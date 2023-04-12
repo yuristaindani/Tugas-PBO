@@ -23,6 +23,7 @@ public class Main {
             System.out.println("\t\t\t\t\t====            Who are you?         ====\t\t\t\t\t");
             System.out.println("\t\t\t\t\t====              1. Admin           ====\t\t\t\t\t");
             System.out.println("\t\t\t\t\t====             2. Customer         ====\t\t\t\t\t");
+            System.out.println("\t\t\t\t\t====              3. Exit            ====\t\t\t\t\t");
             System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
 
             System.out.print("I am login as: ");
@@ -37,8 +38,11 @@ public class Main {
                 case 2:
                     customer.cust();
                     break;
+                case 3:
+                    System.exit(0);
+                    break;
                 default:
-                    System.out.println("Your input is wrong! Please try again (Number 1/2)");
+                    System.out.println("Your input is wrong! Please try again (Number 1-3)");
 
             }
     }
