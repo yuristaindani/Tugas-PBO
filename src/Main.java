@@ -16,6 +16,7 @@ public class Main {
     public static void tampilan() {
         Scanner person = new Scanner(System.in);
         loginAdmin admin = new loginAdmin();
+        loginCustomer customer = new loginCustomer();
         int login;
 
             System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
@@ -30,9 +31,11 @@ public class Main {
             switch (login) {
                 case 1:
                     admin.admin();
+                    Restaurant tampil = new Restaurant();
+                    tampil.displayAdmin();
                     break;
                 case 2:
-                    //customer();
+                    customer.cust();
                     break;
                 default:
                     System.out.println("Your input is wrong! Please try again (Number 1/2)");
