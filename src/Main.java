@@ -32,8 +32,8 @@ public class Main {
             switch (login) {
                 case 1:
                     admin.admin();
-                    Restaurant tampil = new Restaurant();
-                    tampil.displayAdmin();
+                    loginAdmin adminTampilan = new loginAdmin();
+                    adminTampilan.displayAdmin();
                     break;
                 case 2:
                     customer.cust();

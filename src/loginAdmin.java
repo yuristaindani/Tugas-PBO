@@ -8,9 +8,9 @@ public class loginAdmin {
         String password = "yuris123";
 
         System.out.println("Insert your username adn password");
-        System.out.println("\t\t\t\t\tUsername: ");
+        System.out.print("\t\t\t\t\tUsername: ");
         String adminUsername = admin.nextLine();
-        System.out.println("\t\t\t\t\tPassword: ");
+        System.out.print("\t\t\t\t\tPassword: ");
         String adminPassword = admin.nextLine();
 
         if (username.equals(adminUsername) && password.equals(adminPassword)){
@@ -19,6 +19,41 @@ public class loginAdmin {
             System.out.println("Login unsuccessfull. Try again!");
             Main display = new Main();
             display.tampilan();
+        }
+    }
+
+    //tampilan admin setelah login
+    public static void displayAdmin() {
+        Scanner adminDisplay = new Scanner(System.in);
+        int pilih;
+
+        System.out.println("\t\t=========================================");
+        System.out.println("\t\t\t\t1. List Restaurant");
+        System.out.println("\t\t\t\t2. Add Restaurant");
+        System.out.println("\t\t\t\t3. Delete Restaurant");
+        System.out.println("\t\t\t\t4. Back");
+        System.out.println("\t\t=========================================");
+        System.out.print("I choose: ");
+        pilih = adminDisplay.nextInt();
+
+        switch (pilih) {
+            case 1:
+                Restaurant listRestoadmin = new Restaurant();
+                listRestoadmin.restaurantList();
+                break;
+            case 2:
+                //call add restaurant
+                break;
+            case 3:
+                //call delete restaurant
+                break;
+            case 4:
+                Main backLogin = new Main();
+                backLogin.tampilan();
+            default:
+                System.out.println("Your input is wrong! Please try again (Number 1-4)");
+                displayAdmin();
+
         }
     }
 }

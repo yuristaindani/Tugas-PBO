@@ -52,7 +52,7 @@ public class loginCustomer {
         int pilihan;
         System.out.println("1. Buat Pesanan");
         System.out.println("2. Back");
-        System.out.println("I choose: ");
+        System.out.print("I choose: ");
         pilihan = choose.nextInt();
 
         switch (pilihan) {

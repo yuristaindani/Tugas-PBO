@@ -1,40 +1,7 @@
 import java.util.Scanner;
 
 public class Restaurant {
-    public static void displayAdmin() {
-        Scanner adminDisplay = new Scanner(System.in);
-        int pilih;
-
-        System.out.println("\t\t=========================================");
-        System.out.println("\t\t\t\t1. List Restaurant");
-        System.out.println("\t\t\t\t2. Add Restaurant");
-        System.out.println("\t\t\t\t3. Delete Restaurant");
-        System.out.println("\t\t\t\t4. Back");
-        System.out.println("\t\t=========================================");
-        System.out.println("I choose: ");
-        pilih = adminDisplay.nextInt();
-
-        switch (pilih) {
-            case 1:
-                restaurantList();
-                break;
-            case 2:
-                //call add restaurant
-                break;
-            case 3:
-                //call delete restaurant
-                break;
-            case 4:
-                Main backLogin = new Main();
-                backLogin.tampilan();
-            default:
-                System.out.println("Your input is wrong! Please try again (Number 1-4)");
-                displayAdmin();
-
-        }
-
-    }
-    public static void restaurantList(){
+    public static void restaurantList() {
         Scanner list = new Scanner(System.in);
         int pilihList;
 
@@ -45,28 +12,144 @@ public class Restaurant {
         System.out.println("\t\t\t\t4. Chinese Resto");
         System.out.println("\t\t\t\t5. Back");
         System.out.println("\t\t=========================================");
-        System.out.println("\t\tI choose: ");
+        System.out.print("\t\tI choose: ");
         pilihList = list.nextInt();
 
-        switch (pilihList){
+        switch (pilihList) {
             case 1:
-                //call data resto 1
+                italiano();
                 break;
             case 2:
-                //call data resto 2
+                rasaLokal();
                 break;
             case 3:
-                //call data resto 3
+                japanese();
                 break;
             case 4:
-                //call data retso 4
+                chinese();
                 break;
             case 5:
-                displayAdmin();
+                loginAdmin tampilinAdmin = new loginAdmin();
+                tampilinAdmin.displayAdmin();
                 break;
             default:
                 System.out.println("Your input is wrong! Please try again (number 1-5)");
                 restaurantList();
+        }
+    }
+
+    public static void italiano() {
+        Scanner resto1 = new Scanner(System.in);
+        int restoItaliano;
+
+        System.out.println("\t\t=========================================");
+        System.out.println("\t\t\t\t\t\tItaliano Resto");
+        System.out.println("\t\t\t\t");
+        System.out.println("\t\tAddress: 221B Baker Street, Marylebone, London NW1 6XE");
+        System.out.println("\t\tContact Person: 020 123 4567");
+        System.out.println("\t\t\t\t");
+        System.out.println("\t\t\t\t\t\t1.Menu");
+        System.out.println("\t\t\t\t\t\t2.Back");
+        System.out.println("\t\t=========================================");
+        System.out.print("\t\tI choose: ");
+        restoItaliano = resto1.nextInt();
+
+        switch (restoItaliano) {
+            case 1:
+                //call menu resto 1
+                break;
+            case 2:
+                restaurantList();
+                break;
+            default:
+                System.out.println("Your input is wrong. Please try again! (Number 1/2)");
+                italiano();
+        }
+    }
+
+    public static void rasaLokal() {
+        Scanner resto2 = new Scanner(System.in);
+        int restoRasalokal;
+
+        System.out.println("\t\t=========================================");
+        System.out.println("\t\t\t\t\t\tRasa Lokal Resto");
+        System.out.println("\t\t\t\t");
+        System.out.println("\t\tAddress: 10 Downing Street, Westminster, London SW1A 2AA");
+        System.out.println("\t\tContact Person: 020 123 5789");
+        System.out.println("\t\t\t\t");
+        System.out.println("\t\t\t\t\t\t1.Menu");
+        System.out.println("\t\t\t\t\t\t2.Back");
+        System.out.println("\t\t=========================================");
+        System.out.print("\t\tI choose: ");
+        restoRasalokal = resto2.nextInt();
+
+        switch (restoRasalokal) {
+            case 1:
+                //call menu resto 2
+                break;
+            case 2:
+                restaurantList();
+                break;
+            default:
+                System.out.println("Your input is wrong. Please try again! (Number 1/2)");
+                rasaLokal();
+        }
+    }
+
+    public static void japanese() {
+        Scanner resto3 = new Scanner(System.in);
+        int restoJapan;
+
+        System.out.println("\t\t=========================================");
+        System.out.println("\t\t\t\t\t\tJapanese Resto");
+        System.out.println("\t\t\t\t");
+        System.out.println("\t\tAddress: 160 Fleet Street, City of London, London EC4A 2DQ");
+        System.out.println("\t\tContact Person: 020 123 0314");
+        System.out.println("\t\t\t\t");
+        System.out.println("\t\t\t\t\t\t1.Menu");
+        System.out.println("\t\t\t\t\t\t2.Back");
+        System.out.println("\t\t=========================================");
+        System.out.print("\t\tI choose: ");
+        restoJapan = resto3.nextInt();
+
+        switch (restoJapan) {
+            case 1:
+                //call menu resto 4
+                break;
+            case 2:
+                restaurantList();
+                break;
+            default:
+                System.out.println("Your input is wrong. Please try again! (Number 1/2)");
+                japanese();
+        }
+    }
+    public static void chinese() {
+        Scanner resto4 = new Scanner(System.in);
+        int restoChinesse;
+
+        System.out.println("\t\t=========================================");
+        System.out.println("\t\t\t\t\t\tChinese Resto");
+        System.out.println("\t\t\t\t");
+        System.out.println("\t\tAddress: 66 Old Compton Street, Soho, London W1D 4UH");
+        System.out.println("\t\tContact Person: 020 123 1101");
+        System.out.println("\t\t\t\t");
+        System.out.println("\t\t\t\t\t\t1.Menu");
+        System.out.println("\t\t\t\t\t\t2.Back");
+        System.out.println("\t\t=========================================");
+        System.out.print("\t\tI choose: ");
+        restoChinesse = resto4.nextInt();
+
+        switch (restoChinesse) {
+            case 1:
+                //call menu resto 4
+                break;
+            case 2:
+                restaurantList();
+                break;
+            default:
+                System.out.println("Your input is wrong. Please try again! (Number 1/2)");
+                chinese();
         }
     }
 }
