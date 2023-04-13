@@ -28,6 +28,8 @@ public class Main {
 
             System.out.print("I am login as: ");
             login = person.nextInt();
+            hapusLayar clear = new hapusLayar();
+            clear.layarClear();
 
             switch (login) {
                 case 1:

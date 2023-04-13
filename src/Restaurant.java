@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Restaurant {
@@ -14,6 +15,9 @@ public class Restaurant {
         System.out.println("\t\t=========================================");
         System.out.print("\t\tI choose: ");
         pilihList = list.nextInt();
+
+        hapusLayar clear = new hapusLayar();
+        clear.layarClear();
 
         switch (pilihList) {
             case 1:
@@ -54,9 +58,13 @@ public class Restaurant {
         System.out.print("\t\tI choose: ");
         restoItaliano = resto1.nextInt();
 
+        hapusLayar clean = new hapusLayar();
+        clean.layarClear();
+
         switch (restoItaliano) {
             case 1:
-                //call menu resto 1
+                Menu italiaMenu = new Menu();
+                italiaMenu.menuResto1();
                 break;
             case 2:
                 restaurantList();
@@ -83,9 +91,13 @@ public class Restaurant {
         System.out.print("\t\tI choose: ");
         restoRasalokal = resto2.nextInt();
 
+        hapusLayar bersih = new hapusLayar();
+        bersih.layarClear();
+
         switch (restoRasalokal) {
             case 1:
-                //call menu resto 2
+                Menu lokalMenu = new Menu();
+                lokalMenu.menuResto2();
                 break;
             case 2:
                 restaurantList();
@@ -112,9 +124,13 @@ public class Restaurant {
         System.out.print("\t\tI choose: ");
         restoJapan = resto3.nextInt();
 
+        hapusLayar hitam = new hapusLayar();
+        hitam.layarClear();
+
         switch (restoJapan) {
             case 1:
-                //call menu resto 4
+                Menu japanMenu = new Menu();
+                japanMenu.menuResto3();
                 break;
             case 2:
                 restaurantList();
@@ -140,9 +156,13 @@ public class Restaurant {
         System.out.print("\t\tI choose: ");
         restoChinesse = resto4.nextInt();
 
+        hapusLayar layarBersih = new hapusLayar();
+        layarBersih.layarClear();
+
         switch (restoChinesse) {
             case 1:
-                //call menu resto 4
+                Menu chineseMenu = new Menu();
+                chineseMenu.menuResto4();
                 break;
             case 2:
                 restaurantList();

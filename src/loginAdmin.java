@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class loginAdmin {
-    public static void admin(){
+    public static void admin() {
         Scanner admin = new Scanner(System.in);
 
         String username = "adminyuris";
@@ -13,9 +13,12 @@ public class loginAdmin {
         System.out.print("\t\t\t\t\tPassword: ");
         String adminPassword = admin.nextLine();
 
-        if (username.equals(adminUsername) && password.equals(adminPassword)){
+        hapusLayar bersih = new hapusLayar();
+        bersih.layarClear();
+
+        if (username.equals(adminUsername) && password.equals(adminPassword)) {
             System.out.println("Login Successful");
-        } else{
+        } else {
             System.out.println("Login unsuccessfull. Try again!");
             Main display = new Main();
             display.tampilan();
@@ -36,6 +39,9 @@ public class loginAdmin {
         System.out.print("I choose: ");
         pilih = adminDisplay.nextInt();
 
+        hapusLayar clean = new hapusLayar();
+        clean.layarClear();
+
         switch (pilih) {
             case 1:
                 Restaurant listRestoadmin = new Restaurant();
@@ -52,7 +58,7 @@ public class loginAdmin {
                 backLogin.tampilan();
             default:
                 System.out.println("Your input is wrong! Please try again (Number 1-4)");
-                displayAdmin();
+                hapusLayar clear = new hapusLayar();
 
         }
     }
