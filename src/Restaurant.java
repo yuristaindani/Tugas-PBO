@@ -63,7 +63,7 @@ public class Restaurant {
 
         switch (restoItaliano) {
             case 1:
-                Menu italiaMenu = new Menu();
+                menuAdmin italiaMenu = new menuAdmin();
                 italiaMenu.menuResto1();
                 break;
             case 2:
@@ -96,7 +96,7 @@ public class Restaurant {
 
         switch (restoRasalokal) {
             case 1:
-                Menu lokalMenu = new Menu();
+                menuAdmin lokalMenu = new menuAdmin();
                 lokalMenu.menuResto2();
                 break;
             case 2:
@@ -129,7 +129,7 @@ public class Restaurant {
 
         switch (restoJapan) {
             case 1:
-                Menu japanMenu = new Menu();
+                menuAdmin japanMenu = new menuAdmin();
                 japanMenu.menuResto3();
                 break;
             case 2:
@@ -161,7 +161,7 @@ public class Restaurant {
 
         switch (restoChinesse) {
             case 1:
-                Menu chineseMenu = new Menu();
+                menuAdmin chineseMenu = new menuAdmin();
                 chineseMenu.menuResto4();
                 break;
             case 2:
