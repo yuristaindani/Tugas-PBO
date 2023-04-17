@@ -1,52 +1,98 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
+
+    static HashMap<String, Restaurant> dataRestaurant = new HashMap<>();
+
     public static void main(String[] args) {
 
-        System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
-        System.out.println("\t\t\t\t\t====          Hello Deliguys!        ====\t\t\t\t\t");
-        System.out.println("\t\t\t\t\t====        Welcome to Delifood!     ====\t\t\t\t\t");
-        System.out.println("\t\t\t\t\t==== Order your food here and enjoy! ====\t\t\t\t\t");
-        System.out.println("\t\t\t\t\t====                                 ====\t\t\t\t\t");
-        System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
+// Menginisialisasikan restoran beserta menunya
+        Restaurant restoran1 = new Restaurant("DELIRESTO1", "ITALIANO RESTAURANT", "Marylebone", "020 123 4567");
+        restoran1.tambahMenuResto(new Menu("Pizza Margherita", 120000));
+        restoran1.tambahMenuResto(new Menu("Lasagna", 150000));
+        restoran1.tambahMenuResto(new Menu("Spaghetti Carbonara", 80000));
+        restoran1.tambahMenuResto(new Menu("Tiramisu", 60000));
+        restoran1.tambahMenuResto(new Menu("Espresso", 40000));
+        restoran1.tambahMenuResto(new Menu("Cappuccino", 50000));
+        restoran1.tambahMenuResto(new Menu("Ice Latte", 60000));
+        restoran1.tambahMenuResto(new Menu("Americano", 40000));
 
-        tampilan();
-    }
+        Restaurant restoran2 = new Restaurant("DELIRESTO2", "RASA LOKAL RESTAURANT", "Westminster", "020 123 5789");
+        restoran2.tambahMenuResto(new Menu("Rendang Sapi", 80000));
+        restoran2.tambahMenuResto(new Menu("Sate Kambing", 60000));
+        restoran2.tambahMenuResto(new Menu("Ayam Gulai", 40000));
+        restoran2.tambahMenuResto(new Menu("Bakso Ayam", 30000));
+        restoran2.tambahMenuResto(new Menu("Es Tea", 10000));
+        restoran2.tambahMenuResto(new Menu("Es Kelapa Muda", 20000));
+        restoran2.tambahMenuResto(new Menu("Es Jeruk", 15000));
+        restoran2.tambahMenuResto(new Menu("Es Campur", 20000));
 
-    public static void tampilan() {
-        Scanner person = new Scanner(System.in);
-        loginAdmin admin = new loginAdmin();
-        loginCustomer customer = new loginCustomer();
-        int login;
+        Restaurant restoran3 = new Restaurant("DELIRESTO3", "JAPANESE RESTAURANT", "London", "020 123 0314");
+        restoran3.tambahMenuResto(new Menu("Sushi", 50000));
+        restoran3.tambahMenuResto(new Menu("Ramen", 90000));
+        restoran3.tambahMenuResto(new Menu("Udon", 70000));
+        restoran3.tambahMenuResto(new Menu("Tempura", 30000));
+        restoran3.tambahMenuResto(new Menu("Matcha Latte", 50000));
+        restoran3.tambahMenuResto(new Menu("Sake", 60000));
+        restoran3.tambahMenuResto(new Menu("Ocha", 20000));
+        restoran3.tambahMenuResto(new Menu("Melon Soda", 40000));
 
-            System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
-            System.out.println("\t\t\t\t\t====            Who are you?         ====\t\t\t\t\t");
-            System.out.println("\t\t\t\t\t====              1. Admin           ====\t\t\t\t\t");
-            System.out.println("\t\t\t\t\t====             2. Customer         ====\t\t\t\t\t");
-            System.out.println("\t\t\t\t\t====              3. Exit            ====\t\t\t\t\t");
-            System.out.println("\t\t\t\t\t=========================================\t\t\t\t\t");
+        Restaurant restoran4 = new Restaurant("DELIRESTO4", "CHINESE RESTAURANT", "Soho", "020 123 1101");
+        restoran4.tambahMenuResto(new Menu("Bebek Panggang", 80000));
+        restoran4.tambahMenuResto(new Menu("Sapi Lada Hitam", 90000));
+        restoran4.tambahMenuResto(new Menu("Ayam Kung Pao", 60000));
+        restoran4.tambahMenuResto(new Menu("Lumpia Udang", 30000));
+        restoran4.tambahMenuResto(new Menu("Oolong Tea", 20000));
+        restoran4.tambahMenuResto(new Menu("Jasmine Tea", 20000));
+        restoran4.tambahMenuResto(new Menu("Bubble Milk Tea", 30000));
+        restoran4.tambahMenuResto(new Menu("Almond Milk", 25000));
 
-            System.out.print("I am login as: ");
-            login = person.nextInt();
-            hapusLayar clear = new hapusLayar();
-            clear.layarClear();
+// menambahkan restaurant ke dalam HashMap
+        dataRestaurant.put("DELIRESTO1", restoran1);
+        dataRestaurant.put("DELIRESTO2", restoran2);
+        dataRestaurant.put("DELIRESTO3", restoran3);
+        dataRestaurant.put("DELIRESTO4", restoran4);
 
-            switch (login) {
+        Scanner input = new Scanner(System.in);
+        int pilih = 0;
+        boolean isAdmin = false;
+
+        while (pilih != 3) {
+            // tampilkan menu utama
+            Scanner person = new Scanner(System.in);
+            customer customer = new customer();
+            //int login;
+
+            System.out.println("=====================================================================");
+            System.out.println("|                            HELLO DELIGUYS                         |");
+            System.out.println("|                         Welcome to DELIFOOD                       |");
+            System.out.println("=====================================================================");
+            System.out.println("|                         Silakan pilih jenis                       |");
+            System.out.println("|                              login anda:                          |");
+            System.out.println("|                                                                   |");
+            System.out.println("| [1] Login Admin                                                   |");
+            System.out.println("| [2] Login Customer                                                |");
+            System.out.println("| [3] Exit                                                          |");
+            System.out.println("=====================================================================");
+            System.out.print("Masukkan pilihan Anda (1 - 3): ");
+            pilih = person.nextInt();
+
+            switch (pilih) {
                 case 1:
-                    admin.admin();
-                    loginAdmin adminTampilan = new loginAdmin();
-                    adminTampilan.displayAdmin();
+                    Admin.adminLogin();
                     break;
                 case 2:
-                    customer.cust();
+                    //customerPanel(input);
                     break;
                 case 3:
-                    System.exit(0);
+                    System.out.println("Goodbye!");
                     break;
                 default:
-                    System.out.println("Your input is wrong! Please try again (Number 1-3)");
-
+                    System.out.println("Invalid choice");
+                    break;
             }
+        }
     }
 }
 

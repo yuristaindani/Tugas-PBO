@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-public class loginCustomer {
-    public static void cust() {
+public class customer {
+    public static void custLogin() {
         Scanner input = new Scanner(System.in);
         String username, password, confirmPassword;
 
@@ -60,8 +60,8 @@ public class loginCustomer {
                 //call restaurant
                 break;
             case 2:
-                Main kembali = new Main();
-                kembali.tampilan();
+//                Main kembali = new Main();
+//                kembali.tampilan();
                 break;
             default:
                 System.out.println("Your input is wrong! Please try again (Number 1/2)");
