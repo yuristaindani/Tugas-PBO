@@ -81,15 +81,18 @@ public class Main {
             switch (pilih) {
                 case 1:
                     Admin.adminLogin();
+                    hapusLayar.CLS();
                     break;
                 case 2:
                     //customerPanel(input);
+                    hapusLayar.CLS();
                     break;
                 case 3:
-                    System.out.println("Goodbye!");
+                    Tampilan.tampilanThankyou();
+                    System.exit(0);
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    Tampilan.inputSalah1();
                     break;
             }
         }

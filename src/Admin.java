@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.HashMap;
 
 public class Admin {
 
@@ -10,20 +10,20 @@ public class Admin {
         String username = "adminyuris";
         String password = "yuris123";
 
-        System.out.println("Insert your username and password");
-        System.out.print("Username: ");
+        Tampilan.tampilAdminLogin();
+        System.out.print("USERNAME: ");
         String adminUsername = admin.nextLine();
-        System.out.print("Password: ");
+        System.out.print("PASSWORD: ");
         String adminPassword = admin.nextLine();
 
         hapusLayar bersih = new hapusLayar();
-        bersih.layarClear();
+        hapusLayar.CLS();
 
         if (username.equals(adminUsername) && password.equals(adminPassword)) {
             Tampilan.loginBerhasil();
             displayAdmin();
         } else {
-            System.out.println("Login unsuccessfull. Try again!");
+            Tampilan.tampilAdminLogGagal();
         }
     }
 
@@ -34,34 +34,38 @@ public class Admin {
 
         while (pilih != 4) {
             System.out.println("======================================================================");
-            System.out.println("===                  Silakan pilih opsi yang diinginkan:           ===");
-            System.out.println("===                                                                ===");
-            System.out.println("===  [1] Lihat restoran                                            ===");
-            System.out.println("===  [2] Tambah restoran                                           ===");
-            System.out.println("===  [3] Hapus restoran                                            ===");
-            System.out.println("===  [4] Kembali ke menu utama                                     ===");
+            System.out.println("===                         ADMIN HOME PAGE                        ===");
+            System.out.println("----------------------------------------------------------------------");
+            System.out.println("===  [1] List restaurant                                           ===");
+            System.out.println("===  [2] Add new restaurant                                        ===");
+            System.out.println("===  [3] Delete restaurant                                         ===");
+            System.out.println("===  [4] Back to login                                             ===");
             System.out.println("======================================================================");
             System.out.print("I choose (1- 4): ");
             pilih = keyboard.nextInt();
 
-            hapusLayar clean = new hapusLayar();
-            clean.layarClear();
+            hapusLayar.CLS();
 
             switch (pilih) {
                 case 1:
                     daftarResto();
+                    hapusLayar.CLS();
                     break;
                 case 2:
                     addRestaurant();
+                    hapusLayar.CLS();
                     break;
                 case 3:
                     deleteResto();
+                    hapusLayar.CLS();
                     break;
                 case 4:
-//                main
+                    Main.main(new String[] {});
+                    hapusLayar.CLS();
+                break;
                 default:
-                    System.out.println("Your input is wrong! Please try again (Number 1-4)");
-                    hapusLayar.layarClear();
+                    Tampilan.inputSalah();
+                    hapusLayar.CLS();
 
             }
         }
@@ -86,6 +90,7 @@ public class Admin {
     public static void addRestaurant(){
         Scanner masukkan = new Scanner(System.in);
 
+        Tampilan.menuAddTampil();
         System.out.print("Enter id restaurant: ");
         String idResto = masukkan.nextLine();
         System.out.print("Enter restaurant name: ");
@@ -97,7 +102,8 @@ public class Admin {
         Restaurant newRestaurant = new Restaurant(idResto, namaResto, alamatResto, kontakResto);
         String inputUlang = "";
         while (!inputUlang.equals("done")) {
-            System.out.print("Enter menu (ex input format: menuName=menuPrice), input \"done\" to finish: ");
+            Tampilan.tampilNambahMenu();
+            System.out.print("MENU: ");
             inputUlang = masukkan.nextLine();
             if (!inputUlang.equals("done")) {
                 String[] menuData = inputUlang.split("=");
@@ -105,19 +111,21 @@ public class Admin {
             }
         }
         Main.dataRestaurant.put(idResto, newRestaurant);
-        System.out.println("\t\t\tRestaurant added successfully\n\n");
+        Tampilan.addBerhasil();
+        hapusLayar.CLS();
     }
     public static void deleteResto (){
         Scanner input = new Scanner(System.in);
         daftarResto();
 
-        System.out.print("Enter id restaurant: ");
+        Tampilan.tampilanDelete();
+        System.out.print("Id restaurant: ");
         String idResto = input.nextLine();
         if (Main.dataRestaurant.containsKey(idResto)) {
             Main.dataRestaurant.remove(idResto);
-            System.out.println("Restaurant removed successfully");
+            Tampilan.tampilanDeleteBerhasil();
         } else {
-            System.out.println("Restaurant not found");
+            Tampilan.tampilanDeleteGagal();
         }
     }
 }

@@ -1,73 +1,67 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
-public class customer {
-    public static void custLogin() {
-        Scanner input = new Scanner(System.in);
-        String username, password, confirmPassword;
+public class loginUser {
 
-        // Sign up
-        System.out.println("Sign up:");
-        System.out.print("Enter your username: ");
-        username = input.nextLine();
-        System.out.print("Enter your password: ");
-        password = input.nextLine();
-        System.out.print("Confirm your password: ");
-        confirmPassword = input.nextLine();
+    private static HashMap<String, String> users = new HashMap<>();  //membuat objek HashMap untuk menyimpan data user
 
-        while (!password.equals(confirmPassword)) {
-            System.out.println("Passwords do not match. Please try again.");
-            System.out.print("Enter your password: ");
-            password = input.nextLine();
-            System.out.print("Confirm your password: ");
-            confirmPassword = input.nextLine();
+    public static void cust(){
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+
+        while (running) {
+            System.out.println("Silakan pilih menu:");
+            System.out.println("1. Login");
+            System.out.println("2. Sign Up");
+            System.out.println("3. Keluar");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();  //menghapus newline yang tersisa dari input sebelumnya
+
+            switch (choice) {
+                case 1:
+                    login(scanner);
+                    break;
+                case 2:
+                    signup(scanner);
+                    break;
+                case 3:
+                    running = false;
+                    Main balik = new Main();
+                    balik.tampilan();
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid, silakan coba lagi.");
+                    break;
+            }
         }
 
-        System.out.println("Sign up successful!");
-
-        // Login
-        System.out.println("\nLogin:");
-        System.out.print("Enter your username: ");
-        String inputUsername = input.nextLine();
-        System.out.print("Enter your password: ");
-        String inputPassword = input.nextLine();
-
-        while (!username.equals(inputUsername) || !password.equals(inputPassword)) {
-            System.out.println("Invalid username or password. Please try again.");
-            System.out.print("Enter your username: ");
-            inputUsername = input.nextLine();
-            System.out.print("Enter your password: ");
-            inputPassword = input.nextLine();
-        }
-
-        System.out.println("Login successful!");
-        next();
+        scanner.close();
     }
 
+    private static void login(Scanner scanner) {
+        System.out.print("Masukkan username: ");
+        String username = scanner.nextLine();
+        System.out.print("Masukkan password: ");
+        String password = scanner.nextLine();
 
-    // Lanjut ke menu selanjutnya jika login berhasil
-    // ... kode untuk menu selanjutnya ...
-
-    public static void next() {
-        Scanner choose = new Scanner(System.in);
-        int pilihan;
-        System.out.println("1. Buat Pesanan");
-        System.out.println("2. Back");
-        System.out.print("I choose: ");
-        pilihan = choose.nextInt();
-
-        switch (pilihan) {
-            case 1:
-                //call restaurant
-                break;
-            case 2:
-//                Main kembali = new Main();
-//                kembali.tampilan();
-                break;
-            default:
-                System.out.println("Your input is wrong! Please try again (Number 1/2)");
-                next();
-
-
+        if (users.containsKey(username) && users.get(username).equals(password)) {  //memeriksa apakah username dan password sesuai
+            System.out.println("Login berhasil!");
+        } else {
+            System.out.println("Login gagal, silakan coba lagi.");
         }
+    }
+
+    private static void signup(Scanner scanner) {
+        System.out.print("Masukkan username: ");
+        String username = scanner.nextLine();
+        if (users.containsKey(username)) {  //memeriksa apakah username sudah terdaftar
+            System.out.println("Username sudah terdaftar, silakan coba lagi.");
+            return;
+        }
+        System.out.print("Masukkan password: ");
+        String password = scanner.nextLine();
+        users.put(username, password);  //menambahkan data user baru ke dalam HashMap
+        System.out.println("Sign up berhasil! Silakan login.");
     }
 }
