@@ -16,14 +16,13 @@ public class Admin {
         System.out.print("PASSWORD: ");
         String adminPassword = admin.nextLine();
 
-        hapusLayar bersih = new hapusLayar();
         hapusLayar.CLS();
 
         if (username.equals(adminUsername) && password.equals(adminPassword)) {
             Tampilan.loginBerhasil();
             displayAdmin();
         } else {
-            Tampilan.tampilAdminLogGagal();
+            Tampilan.tampilLogGagal();
         }
     }
 

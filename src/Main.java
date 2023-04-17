@@ -61,18 +61,18 @@ public class Main {
         while (pilih != 3) {
             // tampilkan menu utama
             Scanner person = new Scanner(System.in);
-            customer customer = new customer();
+            Customer customer = new Customer();
             //int login;
 
             System.out.println("=====================================================================");
             System.out.println("|                            HELLO DELIGUYS                         |");
-            System.out.println("|                         Welcome to DELIFOOD                       |");
+            System.out.println("|                         WELCOME TO DELIFOOD                       |");
             System.out.println("=====================================================================");
-            System.out.println("|                         Silakan pilih jenis                       |");
-            System.out.println("|                              login anda:                          |");
+            System.out.println("|                             WELCOME USER                          |");
+            System.out.println("|                         CHOOSE YOUR CATEGORY                      |");
             System.out.println("|                                                                   |");
-            System.out.println("| [1] Login Admin                                                   |");
-            System.out.println("| [2] Login Customer                                                |");
+            System.out.println("| [1] Admin                                                         |");
+            System.out.println("| [2] Customer                                                      |");
             System.out.println("| [3] Exit                                                          |");
             System.out.println("=====================================================================");
             System.out.print("Masukkan pilihan Anda (1 - 3): ");
@@ -84,7 +84,7 @@ public class Main {
                     hapusLayar.CLS();
                     break;
                 case 2:
-                    //customerPanel(input);
+                    Customer.custLogin();
                     hapusLayar.CLS();
                     break;
                 case 3:
