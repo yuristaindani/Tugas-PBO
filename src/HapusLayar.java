@@ -1,4 +1,4 @@
-public class hapusLayar {
+public class HapusLayar {
     public static void CLS() {
         System.out.print("\033[H\033[2J");
         System.out.flush();

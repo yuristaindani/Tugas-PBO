@@ -81,11 +81,11 @@ public class Main {
             switch (pilih) {
                 case 1:
                     Admin.adminLogin();
-                    hapusLayar.CLS();
+                    HapusLayar.CLS();
                     break;
                 case 2:
                     Customer.custLogin();
-                    hapusLayar.CLS();
+                    HapusLayar.CLS();
                     break;
                 case 3:
                     Tampilan.tampilanThankyou();

@@ -16,7 +16,7 @@ public class Admin {
         System.out.print("PASSWORD: ");
         String adminPassword = admin.nextLine();
 
-        hapusLayar.CLS();
+        HapusLayar.CLS();
 
         if (username.equals(adminUsername) && password.equals(adminPassword)) {
             Tampilan.loginBerhasil();
@@ -43,28 +43,28 @@ public class Admin {
             System.out.print("I choose (1- 4): ");
             pilih = keyboard.nextInt();
 
-            hapusLayar.CLS();
+            HapusLayar.CLS();
 
             switch (pilih) {
                 case 1:
                     daftarResto();
-                    hapusLayar.CLS();
+                    HapusLayar.CLS();
                     break;
                 case 2:
                     addRestaurant();
-                    hapusLayar.CLS();
+                    HapusLayar.CLS();
                     break;
                 case 3:
                     deleteResto();
-                    hapusLayar.CLS();
+                    HapusLayar.CLS();
                     break;
                 case 4:
                     Main.main(new String[] {});
-                    hapusLayar.CLS();
+                    HapusLayar.CLS();
                 break;
                 default:
                     Tampilan.inputSalah();
-                    hapusLayar.CLS();
+                    HapusLayar.CLS();
 
             }
         }
@@ -111,7 +111,7 @@ public class Admin {
         }
         Main.dataRestaurant.put(idResto, newRestaurant);
         Tampilan.addBerhasil();
-        hapusLayar.CLS();
+        HapusLayar.CLS();
     }
     public static void deleteResto (){
         Scanner input = new Scanner(System.in);
