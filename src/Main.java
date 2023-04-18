@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static HashMap<String, Restaurant> dataRestaurant = new HashMap<>();
+    public static HashMap<String, Restaurant> dataRestaurant = new HashMap<>();
 
     public static void main(String[] args) {
 
