@@ -33,12 +33,12 @@ public class Admin {
 
         while (pilih != 4) {
             System.out.println("======================================================================");
-            System.out.println("===                         ADMIN HOME PAGE                        ===");
+            System.out.println("|                           ADMIN HOME PAGE                          |");
             System.out.println("----------------------------------------------------------------------");
-            System.out.println("===  [1] List restaurant                                           ===");
-            System.out.println("===  [2] Add new restaurant                                        ===");
-            System.out.println("===  [3] Delete restaurant                                         ===");
-            System.out.println("===  [4] Back to login                                             ===");
+            System.out.println("|    [1] List restaurant                                             |");
+            System.out.println("|    [2] Add new restaurant                                          |");
+            System.out.println("|    [3] Delete restaurant                                           |");
+            System.out.println("|    [4] Back to login                                               |");
             System.out.println("======================================================================");
             System.out.print("I choose (1- 4): ");
             pilih = keyboard.nextInt();
@@ -73,17 +73,17 @@ public class Admin {
     public static void daftarResto(){
         for (String restaurantName : Main.dataRestaurant.keySet()) {
             Restaurant restaurant = Main.dataRestaurant.get(restaurantName);
-            System.out.println("====================================================================");
+            System.out.println("======================================================================");
             System.out.println("\t\t\t\t\t\t" + restaurant.getnamaResto());
             System.out.println("\tID RESTO        : " + restaurant.getidResto());
             System.out.println("\tAddress         : " + restaurant.getalamatResto());
             System.out.println("\tContact Person  : " + restaurant.getkontakResto());
-            System.out.println("------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------");
             System.out.println("\t\t\t\t\t\tRESTAURANT MENU");
             for (Menu menu : Main.dataRestaurant.get(restaurantName).getMenu()) {
                 System.out.printf("\t %-20s \t\t\tRp. %-20s\n", menu.getNamaMenu(), menu.getHargaMenu());
             }
-            System.out.println("====================================================================");
+            System.out.println("======================================================================");
         }
     }
     public static void addRestaurant(){
@@ -100,11 +100,11 @@ public class Admin {
         String kontakResto = masukkan.nextLine();
         Restaurant newRestaurant = new Restaurant(idResto, namaResto, alamatResto, kontakResto);
         String inputUlang = "";
-        while (!inputUlang.equals("done")) {
-            Tampilan.tampilNambahMenu();
+        Tampilan.tampilNambahMenu();
+        while (!inputUlang.equals("DONE")) {
             System.out.print("MENU: ");
             inputUlang = masukkan.nextLine();
-            if (!inputUlang.equals("done")) {
+            if (!inputUlang.equals("DONE")) {
                 String[] menuData = inputUlang.split("=");
                 newRestaurant.addMenu(new Menu(menuData[0], Integer.parseInt(menuData[1])));
             }
